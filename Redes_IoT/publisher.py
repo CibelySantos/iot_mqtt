@@ -1,8 +1,6 @@
 import paho.mqtt.client as mqtt
-# Unidade Curricular Redes IoT
-#Aula 1: MOTT Prof. Wesley Fioreze
 
-broker = "broker.hivemq.com"        #Broker público
+broker = "broker.hivemq.com"  
 port = 1883
 topic = "senai/dev"
 
