@@ -1,0 +1,28 @@
+1. Preparação do Ambiente
+    Antes de começar, precisamos instalar uma biblioteca paho-mqtt, que permite a comunicação usando o protocolo MQTT. 
+    Para isso, basta rodar o seguinte comando no terminal ou prompt de comando:
+        ´pip install paho-mqtt`
+    O código utiliza o corretor público broker.hivemq.com , que roda na porta 1883 . Esse corretor é gratuito e permite 
+    testes sem necessidade de configuração de um servidor próprio.
+
+2. Explicação dos Arquivos
+    O sistema é baseado no modelo Publicador/Assinante (Publisher/Subscriber).
+    O publicador ( publisher.py) envia mensagens para um tópico MQTT.
+    O assinante ( subscriber.py) escuta esse tópico e exibe as mensagens recebidas.
+    
+    O código no "publisher.py" cria um cliente MQTT que envia mensagens digitalizadas pelo usuário para o tópico "senai/dev".
+    O código no "subcriber.py" cria um cliente MQTT que se inscreve no tópico "senai/dev"e imprime as mensagens recebidas.
+
+3. Como Testar
+    Para testar o código, abra dois terminais no computador.
+        No primeiro terminal , execute o assinante ( subscriber.py):
+            ´python subscriber.py`
+        O programa ficará rodando e esperando mensagens.
+        No segundo terminal , execute o publicador ( publisher.py):
+            ´python publisher.py`
+        O programa pedirá para digitar mensagens.
+    
+    Digite uma mensagem no terminal do publicador e pressione Enter:
+        Digite uma mensagem para enviar: Olá, MQTT!
+    No terminal do assinante, uma mensagem aparecerá assim:
+        Mensagem recebida no tópico 'senai/dev': Olá, MQTT!
